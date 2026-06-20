@@ -28,25 +28,15 @@ This project was transformed from a simple local application into a fully contai
 ## 🏗️ Architecture
 
 GitHub Repository
-
 ↓
-
 Jenkins Pipeline
-
 ↓
-
 Docker Build
-
 ↓
-
 Docker Hub
-
 ↓
-
 Kubernetes Deployment
-
 ↓
-
 Application Verification
 
 ---
@@ -246,18 +236,6 @@ chmod +x test-api.sh
 * Kubernetes Secrets for credentials
 * Environment Variable Management
 * Docker Hub Credential Integration with Jenkins
-
----
-
-## 📸 Project Screenshots
-
-Add screenshots of:
-
-* Jenkins Successful Build
-* Kubernetes Pods Running
-* Kubernetes Deployment Status
-* Docker Hub Image
-* Application API Testing
 
 ---
 
