@@ -1,97 +1,290 @@
-# CampusFit Application
+# 🚀 CampusFit DevOps Project
 
-A Node.js student registration application for learning Docker.
+A production-style DevOps project demonstrating containerization, orchestration, and CI/CD automation using Node.js, MongoDB, Docker, Kubernetes, Jenkins, and Docker Hub.
 
-## 🚀 Quick Start
+---
 
-### 1. Setup
+## 📌 Project Overview
 
-```bash
-# Install dependencies
+CampusFit is a student registration application built with Node.js and MongoDB.
+
+This project was transformed from a simple local application into a fully containerized and automated deployment pipeline using modern DevOps practices.
+
+### Features
+
+* Student Registration API
+* MongoDB Database Integration
+* Docker Containerization
+* Docker Compose Multi-Container Setup
+* Kubernetes Deployment
+* ConfigMaps & Secrets
+* Health Checks (Liveness & Readiness Probes)
+* Jenkins CI/CD Pipeline
+* Docker Hub Integration
+* Automated Kubernetes Deployments
+
+---
+
+## 🏗️ Architecture
+
+GitHub Repository
+
+↓
+
+Jenkins Pipeline
+
+↓
+
+Docker Build
+
+↓
+
+Docker Hub
+
+↓
+
+Kubernetes Deployment
+
+↓
+
+Application Verification
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+
+### DevOps
+
+* Docker
+* Docker Compose
+* Kubernetes
+* Minikube
+* Jenkins
+* Docker Hub
+
+---
+
+## 📂 Project Structure
+
+Campusfit-Devops/
+
+├── app.js
+
+├── package.json
+
+├── Dockerfile
+
+├── docker-compose.yml
+
+├── Jenkinsfile
+
+├── .env.example
+
+├── k8s/
+
+│ ├── app-deployment.yaml
+
+│ ├── app-service.yaml
+
+│ ├── mongodb-deployment.yaml
+
+│ ├── mongodb-service.yaml
+
+│ ├── mongodb-secret.yaml
+
+│ └── app-configmap.yaml
+
+├── controllers/
+
+├── models/
+
+├── routes/
+
+└── config/
+
+---
+
+## 🚀 Local Development
+
+### Install Dependencies
+
 npm install
 
-# Configure environment
+### Configure Environment
+
 cp .env.example .env
-```
 
-### 2. Start MongoDB
+### Start Application
 
-**Create MongoDB user:**
-```bash
-mongosh << 'EOF'
-use admin
-db.createUser({
-  user: "campusfit_user",
-  pwd: "campusfit_password",
-  roles: [{ role: "readWrite", db: "campusfit_db" }]
-})
-exit
-EOF
-```
-
-### 3. Run Application
-
-```bash
 npm start
-```
 
-Expected output:
-```
-✅ MongoDB connected successfully
-🚀 CampusFit Application Started
-📍 Server running on port 3000
-```
+---
+
+## 🐳 Docker Setup
+
+### Build Image
+
+docker build -t campusfit-app .
+
+### Run Container
+
+docker run -p 3000:3000 campusfit-app
+
+### Docker Compose
+
+docker-compose up -d
+
+---
+
+## ☸️ Kubernetes Deployment
+
+### Apply Kubernetes Resources
+
+kubectl apply -f k8s/
+
+### Verify Deployment
+
+kubectl get deployments
+
+kubectl get pods
+
+kubectl get services
+
+### Access Application
+
+minikube service campusfit-service --url
+
+---
+
+## 🔄 Jenkins CI/CD Pipeline
+
+Pipeline Stages:
+
+### Stage 1 – Checkout
+
+Pull latest code from GitHub.
+
+### Stage 2 – Build
+
+Build Docker image.
+
+### Stage 3 – Push
+
+Push image to Docker Hub.
+
+### Stage 4 – Deploy
+
+Update Kubernetes deployment.
+
+### Stage 5 – Verify
+
+Validate deployment status and pod health.
+
+---
 
 ## 📡 API Endpoints
 
 ### Health Check
-```bash
+
+GET /health
+
+Example:
+
 curl http://localhost:3000/health
-```
 
 ### Register Student
-```bash
-curl -X POST http://localhost:3000/student \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Rahul","membership":"Premium"}'
-```
 
-**Membership types:** `Basic`, `Premium`, `Elite`
+POST /student
 
-## 🧪 Test Everything
+Example:
 
-```bash
-chmod +x test-api.sh
-./test-api.sh
-```
+curl -X POST http://localhost:3000/student 
+-H "Content-Type: application/json" 
+-d '{"name":"Kuldeep","membership":"Premium"}'
 
-## 📦 What's Next?
+Membership Types:
 
-This application runs locally. Your assignment is to **containerize it using Docker**.
-
-You will:
-- Write a `Dockerfile`
-- Build and run Docker images
-- Fix the MongoDB networking issue (hint: `localhost` won't work in containers!)
-- Create `docker-compose.yml`
-- Configure volumes for data persistence
-- Push your image to Docker Hub
-
-**The application is intentionally NOT Dockerized - that's your job!**
-
-## 🐛 Troubleshooting
-
-**MongoDB connection failed?**
-```bash
-sudo systemctl start mongod
-mongosh --eval "db.version()"  # verify MongoDB is running
-```
-
-**Port already in use?**
-```bash
-lsof -ti:3000 | xargs kill -9
-```
+* Basic
+* Premium
+* Elite
 
 ---
 
-Good luck! 🚀
+## 🧪 Testing
+
+Run API tests:
+
+chmod +x test-api.sh
+
+./test-api.sh
+
+---
+
+## 📊 Kubernetes Features Implemented
+
+* Deployments
+* Services
+* ConfigMaps
+* Secrets
+* Resource Limits
+* Resource Requests
+* Liveness Probes
+* Readiness Probes
+* Rolling Updates
+
+---
+
+## 🔐 Security Features
+
+* Kubernetes Secrets for credentials
+* Environment Variable Management
+* Docker Hub Credential Integration with Jenkins
+
+---
+
+## 📸 Project Screenshots
+
+Add screenshots of:
+
+* Jenkins Successful Build
+* Kubernetes Pods Running
+* Kubernetes Deployment Status
+* Docker Hub Image
+* Application API Testing
+
+---
+
+## 🎯 Learning Outcomes
+
+Through this project I learned:
+
+* Docker Containerization
+* Multi-Container Applications
+* Docker Networking
+* Docker Hub Image Management
+* Kubernetes Deployments
+* Kubernetes Services
+* ConfigMaps & Secrets
+* Health Monitoring
+* Jenkins CI/CD Pipelines
+* Automated Deployments
+* DevOps Troubleshooting
+
+---
+
+## 👨‍💻 Author
+
+Kuldeep Kolage
+
+DevOps | Full Stack Development | Cloud & Infrastructure Learning
+
+---
+
+⭐ If you found this project useful, consider giving it a star.
